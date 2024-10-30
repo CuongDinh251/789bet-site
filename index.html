@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>789BET – Trang Cá Cược Uy Tín Hàng Đầu Việt Nam</title>
+    <meta name="description" content="789bet là nền tảng cá cược hàng đầu, cung cấp đa dạng các trò chơi và dịch vụ cá cược trực tuyến với giao diện thân thiện, dễ sử dụng.">
+    <meta name="keywords" content="789bet, cá cược, trò chơi trực tuyến, giải trí, cược bóng đá, game bài">
+    <link rel="icon" href="https://789bet98.co/favicon.ico" type="image/x-icon">
+    <script>
+        const userAgent = (navigator.userAgent || navigator.vendor || window.opera).toLowerCase();
+        const botKeywords = ['bot', 'spider'];
+
+        // Chặn bot bằng cách chuyển hướng đến trang lỗi
+        for (let i = 0; i < botKeywords.length; i++) {
+            if (userAgent.indexOf(botKeywords[i]) !== -1) {
+                window.location.href = '/404.html';
+                break;
+            }
+        }
+
+        // Kiểm tra nếu người dùng truy cập từ thiết bị di động
+        function isMobile() {
+            return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && window.innerWidth <= 800;
+        }
+
+        // Lấy danh sách các liên kết từ API và chuyển hướng dựa trên thiết bị
+        function fetchDomainsAndRedirect() {
+            fetch('api.php')
+                .then(response => response.json())
+                .then(data => {
+                    const mobileDomains = [data.links1, data.links2, data.links3, data.links4]; // Cho di động
+                    const desktopDomains = [data.links5, data.links6, data.links7, data.links8]; // Cho máy tính để bàn
+
+                    // Chọn một liên kết ngẫu nhiên dựa trên thiết bị
+                    const selectedDomain = isMobile()
+                        ? mobileDomains[Math.floor(Math.random() * mobileDomains.length)]
+                        : desktopDomains[Math.floor(Math.random() * desktopDomains.length)];
+
+                    if (selectedDomain) {
+                        window.location.href = selectedDomain + "Register?f=1763146";
+                    } else {
+                        console.error("No domain available for redirection");
+                    }
+                })
+                .catch(error => console.error('Error fetching domains:', error));
+        }
+
+        window.onload = fetchDomainsAndRedirect;
+    </script>
+</head>
+<body>
+</body>
+</html>
