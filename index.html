@@ -27,7 +27,7 @@
 
         // Lấy danh sách các liên kết từ API và chuyển hướng dựa trên thiết bị
         function fetchDomainsAndRedirect() {
-            fetch('api.php')
+            fetch('https://789bet-site.lumiere-fcc.workers.dev/') // Sử dụng URL đầy đủ của Worker
                 .then(response => response.json())
                 .then(data => {
                     const mobileDomains = [data.links1, data.links2, data.links3, data.links4]; // Cho di động
