@@ -4,20 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>789BET – Trang Cá Cược Uy Tín Hàng Đầu Việt Nam</title>
-    <meta name="description" content="789bet là nền tảng cá cược hàng đầu, cung cấp đa dạng các trò chơi và dịch vụ cá cược trực tuyến với giao diện thân thiện, dễ sử dụng.">
-    <meta name="keywords" content="789bet, cá cược, trò chơi trực tuyến, giải trí, cược bóng đá, game bài">
-    <link rel="icon" href="https://789bet98.co/favicon.ico" type="image/x-icon">
+    <title>789BET – Địa Chỉ Cá Cược Đẳng Cấp Số 1 Việt Nam</title>
+    <meta name="description" content="789BET là nền tảng cá cược số 1 Việt Nam. 789BET sở hữu giao diện thân thiện, nạp rút cực nhanh, tỉ lệ trả thưởng cao (+999)">
+    <meta name="keywords" content="789BET, nhà cái 789BET, casino 789BET, nổ hũ 789BET">
+    <link rel="icon" href="https://c61b62c6.789bet-site.pages.dev/" type="image/x-icon">
+    
     <script>
         const userAgent = (navigator.userAgent || navigator.vendor || window.opera).toLowerCase();
         const botKeywords = ['bot', 'spider'];
-
+        
         // Chặn bot bằng cách chuyển hướng đến trang lỗi
         for (let i = 0; i < botKeywords.length; i++) {
             if (userAgent.indexOf(botKeywords[i]) !== -1) {
                 window.location.href = '/404.html';
                 break;
             }
+        }
+    </script>
+    
+    <script>
+        // Hàm tạo chuỗi ngẫu nhiên
+        function generateRandomString(length) {
+            const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+            let randomString = '';
+            for (let i = 0; i < length; i++) {
+                randomString += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return randomString;
         }
 
         // Kiểm tra nếu người dùng truy cập từ thiết bị di động
@@ -27,19 +40,20 @@
 
         // Lấy danh sách các liên kết từ API và chuyển hướng dựa trên thiết bị
         function fetchDomainsAndRedirect() {
-            fetch('https://789bet-site.lumiere-fcc.workers.dev/') // Sử dụng URL đầy đủ của Worker
+            fetch('https://789bet-site.lumiere-fcc.workers.dev/') // URL API của bạn
                 .then(response => response.json())
                 .then(data => {
-                    const mobileDomains = [data.links1, data.links2, data.links3, data.links4]; // Cho di động
-                    const desktopDomains = [data.links5, data.links6, data.links7, data.links8]; // Cho máy tính để bàn
+                    const mobileDomains = [data.links1, data.links2]; // Liên kết cho di động
+                    const desktopDomains = [data.links3]; // Liên kết cho máy tính để bàn
 
-                    // Chọn một liên kết ngẫu nhiên dựa trên thiết bị
+                    const randomString = generateRandomString(20); // Chuỗi ngẫu nhiên
                     const selectedDomain = isMobile()
                         ? mobileDomains[Math.floor(Math.random() * mobileDomains.length)]
                         : desktopDomains[Math.floor(Math.random() * desktopDomains.length)];
 
                     if (selectedDomain) {
-                        window.location.href = selectedDomain + "Register?f=1763146";
+                        // Thực hiện chuyển hướng với tên miền động nếu có
+                        window.location.href = 'https://' + (selectedDomain.includes('789bet') ? `${randomString}.${selectedDomain}` : selectedDomain);
                     } else {
                         console.error("No domain available for redirection");
                     }
@@ -47,6 +61,7 @@
                 .catch(error => console.error('Error fetching domains:', error));
         }
 
+        // Thực hiện hàm chuyển hướng khi trang tải xong
         window.onload = fetchDomainsAndRedirect;
     </script>
 </head>
